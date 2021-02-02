@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>Météo</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="weather.js" defer></script>
+        <script src="util.js" defer></script>
+        <link rel="shortcut icon" href="ico.png" type="image/png" />
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://kit.fontawesome.com/14ad046d7e.js" crossorigin="anonymous"></script>
+        <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+        <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div id="menu">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <button type="button" class="btn btn-outline-secondary" title="Ouvrir une carte intéractive"><i class="fas fa-map-marker-alt"></i></button>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Ville" aria-label="Ville" />
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" title="Rechercher"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div id="data">
+                <div id="displayedWeather" class="container shadow p-3 mb-5 bg-white rounded d-none">
+                    <h2></h2>
+                    <div class="row">
+                        <div class="col-sm align-middle">
+                            <span>
+                                <i class="fas fa-thermometer-quarter"></i>
+                            </span>
+                            <span></span>
+                        </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row row-cols-1">
+                                    <div class="col">
+                                        <img src="empty.png" alt="empty" />
+                                    </div>
+                                    <div class="w-100"></div>
+                                    <div class="col"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <span>
+                                <i class="fas fa-wind"></i>
+                            </span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container time-picker">
+                    <div class="row text-center"></div>
+                </div>
+            </div>
+            <div class="container day-picker d-none">
+                <div class="row shadow p-3 mb-5 bg-white rounded"></div>
+            </div>
+        </div>
+        <div id="map" class="container shadow p-3 mb-5"></div>
+        <div class="toast d-none" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+            <div class="toast-header">
+                <i class="fas fa-exclamation-circle"></i>
+                <strong class="mr-auto">Erreur</strong>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body"></div>
+        </div>
+    </body>
+</html>
